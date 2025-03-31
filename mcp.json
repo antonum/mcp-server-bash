@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+      "math": {
+        "command": "/Users/anton/code/mcp-server-bash/mcp_add.sh",
+        "args": [
+
+        ]
+      }
+    }
+  }
