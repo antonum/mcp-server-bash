@@ -2,6 +2,8 @@
 
 Minimalistic MCP server written in bash script.
 
+## LLM host configuration
+
 JSON Configuration file for mcphost and Claude Desktop:
 
 ```json
@@ -15,10 +17,18 @@ JSON Configuration file for mcphost and Claude Desktop:
   }
 ```
 
-Test with mcphost
+
+
+## Test with mcphost
+
+Add execute to bash script:
+```
+chmod +x mcp_add.sh
+```
+Run mcphost with llama3.1 and tool configuration file
 
 ```bash
-~/go/bin/mcphost -m ollama:llama3.1:latest --config /Users/anton/Timescale/mcp-server-bash/mcp.json
+mcphost -m ollama:llama3.1:latest --config /Users/anton/Timescale/mcp-server-bash/mcp.json
 
 ...
 

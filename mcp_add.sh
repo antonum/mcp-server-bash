@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting mcp_add.sh">> /Users/anton/code/mcp-server-bash/requests.log
+echo "Starting mcp_add.sh" >> /Users/anton/code/mcp-server-bash/requests.log
 
 while read -r line; do
     echo $line >> /Users/anton/code/mcp-server-bash/requests.log
@@ -8,7 +8,6 @@ while read -r line; do
     method=$(echo "$line" | jq -r '.method' 2>/dev/null)
     id=$(echo "$line" | jq -r '.id' 2>/dev/null)
     if [[ "$method" == "initialize" ]]; then
-        #echo '{"jsonrpc":"2.0", "id": "'"$id"'"}'
         echo '{"jsonrpc":"2.0","id":'"$id"',"result":{"protocolVersion":"2024-11-05","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools":{"listChanged":false}},"serverInfo":{"name":"math","version":"0.0.1"}}}'
     
     elif [[ "$method" == "notifications/initialized" ]]; then
@@ -26,7 +25,6 @@ while read -r line; do
     elif [[ "$method" == "tools/call" ]]; then
         #{"method":"tools/call","params":{"name":"addition","arguments":{"num1":"1","num2":"2"}},"jsonrpc":"2.0","id":20}
         tool_method=$(echo "$line" | jq -r '.params.name' 2>/dev/null)
-        tool_arguments=$(echo "$line" | jq -r '.params.arguments' 2>/dev/null)
         num1=$(echo "$line" | jq -r '.params.arguments.num1' 2>/dev/null)
         num2=$(echo "$line" | jq -r '.params.arguments.num2' 2>/dev/null)
         sum=$((num1 + num2))
