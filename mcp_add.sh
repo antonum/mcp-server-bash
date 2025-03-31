@@ -14,7 +14,7 @@ while read -r line; do
         : #do nothing
     
     elif [[ "$method" == "tools/list" ]]; then
-        echo '{"jsonrpc":"2.0","id":'"$id"',"result":{"tools":[{"name":"addition","description":"addition of two numbers.\n\nArgs:\n    num1, num2\n","inputSchema":{"properties":{"num1":{"title":"Number1","type":"string"},"num2":{"title":"Number2","type":"string"}},"required":["num1", "num2"]}}]}}'
+        echo '{"jsonrpc":"2.0","id":'"$id"',"result":{"tools":[{"name":"addition","description":"addition of two numbers.\n\nArgs:\n    num1, num2\n","inputSchema":{"properties":{"num1":{"title":"Number1","type":"string"},"num2":{"title":"Number2","type":"string"}},"required":["num1", "num2"],"type":"object"}}]}}'
     
     elif [[ "$method" == "resources/list" ]]; then
         echo '{"jsonrpc":"2.0","id":'"$id"',"result":{"resources":[]}}'
